@@ -50,4 +50,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function dosen()
+    {
+        return $this->belongsTo(User::class, 'dosen_nip', 'npm')->where('roles', 'dosen');
+    }
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm')->where('roles', 'mahasiswa');
+    }
+
 }
