@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('Landingpage');
 });
 
+Route::get('/detailMahasiswa', function () {
+    return view('mahasiswa/detailMahasiswa');
+});
+
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
