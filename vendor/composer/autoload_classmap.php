@@ -32,8 +32,6 @@ return array(
     'App\\Http\\Requests\\ProfileUpdateRequest' => $baseDir . '/app/Http/Requests/ProfileUpdateRequest.php',
     'App\\Http\\Requests\\RegistrasiRequest' => $baseDir . '/app/Http/Requests/RegistrasiRequest.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
-    'App\\Models\\dokumen' => $baseDir . '/app/Models/dokumen.php',
-    'App\\Models\\komentar' => $baseDir . '/app/Models/komentar.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
