@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Middleware\CheckRoleMiddleware;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/redirects',[HomeController::class,"index"]);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -30,12 +32,4 @@ Route::middleware('auth')->group(function () {
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
 
-Route::get('/mahasiswa/dashboard', [MahasiswaController::class, 'dashboard'])
-    ->middleware('auth', 'role:Mahasiswa');
-    
-Route::get('/dosen/dashboard', [DosenController::class, 'dashboard'])
-    ->middleware('auth', 'role:Dosen');
-    
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
-    ->middleware('auth', 'role:Admin');
 
