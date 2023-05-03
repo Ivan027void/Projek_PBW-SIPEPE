@@ -4,24 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     public function index()
     {
-        $role=Auth::user()->role;
+        $role = Auth::user()->role;
 
-        if ($role== 'Mahasiswa'){
+        if ($role == 'Mahasiswa') {
+            return view('mahasiswa/home');
+        } elseif ($role == 'Dosen') {
+            return view('dosen/home');
+        } elseif ($role == 'Admin') {
+            return view('admin/dashboard');
+        } else {
+            return view('dashboard');
 
-            return view('home');
-        }
-
-        if ($role== 'Dosen'){
-
-            return view('homeP');
-        }
-
-        else{
-            return view('admin');
-        }
     }
 }
