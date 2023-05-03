@@ -40,7 +40,7 @@
         </tr>
         <tr class="bg-white text-dark">
           <td>1</td>
-          <td>E-Commerce</td>
+          <td><a href = "/detailMahasiswa"> E-Commerce </a> </td>
           <td>Bapak Alim Hisbullah</td>
           <td>10.00</td>
           <td><i class="fas fa-check-circle text-info"></i></td>
