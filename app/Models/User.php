@@ -22,6 +22,7 @@ class User extends Authenticatable
         'npm',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -34,6 +35,12 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -42,4 +49,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function dosen()
+    {
+        return $this->belongsTo(User::class, 'dosen_nip', 'npm')->where('roles', 'dosen');
+    }
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm')->where('roles', 'mahasiswa');
+    }
+
 }

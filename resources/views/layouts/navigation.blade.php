@@ -3,7 +3,8 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-            <a href="{{ route('profile.show') }}" class="d-block">{{ Auth::user()->name }}</a>
+            <p>Nama:<a href="{{ route('profile.show') }}" class="d-block">{{ Auth::user()->name }}</a></P>
+            <p>NPM: <a href="{{ route('profile.show') }}" class="d-block">{{ Auth::user()->npm }}</a></p>
         </div>
     </div>
 
@@ -20,6 +21,8 @@
                 </a>
             </li>
 
+            @auth
+            @if(auth()->user()->role == 'Mahasiswa')
             <li class="nav-item">
                 <a href="{{ route('about') }}" class="nav-link">
                     <i class="nav-icon far fa-address-card"></i>
@@ -28,7 +31,16 @@
                     </p>
                 </a>
             </li>
-
+            @elseif(auth()->user()->role == 'Dosen')
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                        {{ __('Penelitian') }}
+                    </p>
+                </a>
+            </li>
+            @elseif(auth()->user()->role == 'Admin')
             <li class="nav-item">
                 <a href="{{ route('users.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
@@ -37,8 +49,8 @@
                     </p>
                 </a>
             </li>
-            
-
+            @endif
+            @endauth
             <!-- <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-circle nav-icon"></i>
