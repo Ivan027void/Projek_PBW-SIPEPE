@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb8a0735a7f418c260e7eec775b093158
+class ComposerStaticInit3e16e38d15ea4e2a73281fc7e260395b
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -343,8 +343,8 @@ class ComposerStaticInitb8a0735a7f418c260e7eec775b093158
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -546,8 +546,6 @@ class ComposerStaticInitb8a0735a7f418c260e7eec775b093158
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
         'App\\Http\\Requests\\RegistrasiRequest' => __DIR__ . '/../..' . '/app/Http/Requests/RegistrasiRequest.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
-        'App\\Models\\dokumen' => __DIR__ . '/../..' . '/app/Models/dokumen.php',
-        'App\\Models\\komentar' => __DIR__ . '/../..' . '/app/Models/komentar.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -6315,10 +6313,10 @@ class ComposerStaticInitb8a0735a7f418c260e7eec775b093158
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb8a0735a7f418c260e7eec775b093158::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb8a0735a7f418c260e7eec775b093158::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitb8a0735a7f418c260e7eec775b093158::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitb8a0735a7f418c260e7eec775b093158::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3e16e38d15ea4e2a73281fc7e260395b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3e16e38d15ea4e2a73281fc7e260395b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3e16e38d15ea4e2a73281fc7e260395b::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit3e16e38d15ea4e2a73281fc7e260395b::$classMap;
 
         }, null, ClassLoader::class);
     }

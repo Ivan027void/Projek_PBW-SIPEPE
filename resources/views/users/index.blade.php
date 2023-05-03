@@ -31,6 +31,8 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>NPM/NIP</th>
+                                        <th>Role</th>
                                     </tr>
                                 </thead>
                                 <tbody>
