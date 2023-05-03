@@ -3,8 +3,8 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-            <h1>Nama:<a href="{{ route('profile.show') }}" class="d-block">{{ Auth::user()->name }}</a></P>
-            <>NPM: <a href="{{ route('profile.show') }}" class="d-block">{{ Auth::user()->npm }}</a></p>
+            <p>Nama:<a href="{{ route('profile.show') }}" class="d-block">{{ Auth::user()->name }}</a></P>
+            <p>NPM: <a href="{{ route('profile.show') }}" class="d-block">{{ Auth::user()->npm }}</a></p>
         </div>
     </div>
 
