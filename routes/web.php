@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use app\Http\Middleware\CheckRoleMiddleware;
+use app\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -31,11 +35,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/mahasiswa/dashboard', [MahasiswaController::class, 'dashboard'])
-    ->middleware('auth', 'role:Mahasiswa');
+    ->middleware('auth', 'role:mahasiswa');
     
 Route::get('/dosen/dashboard', [DosenController::class, 'dashboard'])
-    ->middleware('auth', 'role:Dosen');
+    ->middleware('auth', 'role:dosen');
     
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
-    ->middleware('auth', 'role:Admin');
+    ->middleware('auth', 'role:admin');
 
