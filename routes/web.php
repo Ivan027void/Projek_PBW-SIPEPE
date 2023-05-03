@@ -31,11 +31,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/mahasiswa/dashboard', [MahasiswaController::class, 'dashboard'])
-    ->middleware('auth', 'role:mahasiswa');
+    ->middleware('auth', 'role:Mahasiswa');
     
 Route::get('/dosen/dashboard', [DosenController::class, 'dashboard'])
-    ->middleware('auth', 'role:dosen');
+    ->middleware('auth', 'role:Dosen');
     
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
-    ->middleware('auth', 'role:admin');
+    ->middleware('auth', 'role:Admin');
 
