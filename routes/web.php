@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use app\Http\Middleware\CheckRoleMiddleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +29,13 @@ Route::middleware('auth')->group(function () {
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
+
+Route::get('/mahasiswa/dashboard', [MahasiswaController::class, 'dashboard'])
+    ->middleware('auth', 'role:Mahasiswa');
+    
+Route::get('/dosen/dashboard', [DosenController::class, 'dashboard'])
+    ->middleware('auth', 'role:Dosen');
+    
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
+    ->middleware('auth', 'role:Admin');
+
