@@ -19,7 +19,7 @@
         
         <section class="welcome-section">
             <div class="text-center">
-                <a href="login.html">
+                <a href="/register">
                     <img src="images/6.png" alt="Logo NutriCycle">
                 </a>
                 <br>
