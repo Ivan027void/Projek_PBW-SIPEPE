@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">{{ __('Pengajuan') }}</h1>
+                    <h1 class="m-0">{{ __('Penelitian) }}</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -22,9 +22,20 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ __('') }}</h5>
 
-                            <p class="card-text">
-                                {{ __('Data lengkap pengajuan') }}
-                            </p>
+                            <div>
+                                <br>
+                                <tr>
+                                        <td>Judul : </td>
+                                        <td>E - Commerce</td>
+                                        </tr>
+                                    <br>
+                                <tr>
+                                        <td>Nama : </td>
+                                        <td>Ivan</td>
+                                        </tr>
+
+                                </div>
+    
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,7 @@
             <br>
             <br>
             <center>
-                <a href="/register" class="btn btn-dark text-white rounded-4 text-center">
+                <a href="/login" class="btn btn-dark text-white rounded-4 text-center">
                     <i class="fas fa-arrow-right"></i> Get Started
                 </a>
             </center>
