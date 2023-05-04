@@ -20,7 +20,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <table class="table w-100 text-white text-center">
+                            <table class="table w-100 text-black text-center">
                                 <thead>
                                     <tr style="background: #60A5FA;">
                                         <th>No</th>
@@ -30,10 +30,17 @@
                                         <th>Status</th>
                                     </tr>
                                 </thead>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a href = "detailMahasiswa" style="color: black;" onmouseover="this.style.color='blue';" onmouseout="this.style.color='black';">E-Commerce </a></td>
+                                    <td>Alim Misbullah</td>
+                                    <td>10 Desember 2022</td>
+                                    <td>pending</td>
+                                  </tr>
                                 <tbody>
                                 @if($penelitian->isEmpty())
                                   <tr>
-                                    <td colspan="4">Tidak ada data penelitian.</td>
+                                   
                                   </tr>
                                   @else
                                   @foreach($penelitian as $pen)
@@ -44,8 +51,13 @@
                                     <td>{{ $pen->tanggal_pengajuan->format('d/m/Y') }}</td>
                                     <td>{{ $pen->status_persetujuan }}</td>
                                   </tr>
+                                  <tr>
+                                    <td colspan="4">e-commerce</td>
+                                    <td colspan="4">alim misbullah</td>
+                                  </tr>
                                   @endforeach
                                   @endif
+                                  
                                 </tbody>
                               </table>
                         </div>
