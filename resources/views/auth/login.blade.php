@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card-body login-card-body">
-        <p class="login-box-msg text-xl">{{ __('Login') }}</p>
+        <p class="login-box-msg">{{ __('Login') }}</p>
 
         <form action="{{ route('login') }}" method="post">
             @csrf
@@ -35,8 +35,8 @@
                 @enderror
             </div>
 
-            <div class="row align-items-center">
-                <div class="col-md-6 text-sm">
+            <div class="row">
+                <div class="col-8">
                     <div class="icheck-primary">
                         <input type="checkbox" id="remember" name="remember">
                         <label for="remember">
@@ -44,26 +44,25 @@
                         </label>
                     </div>
                 </div>
-                <div class="col-md-6 d-flex justify-content-end text-sm">
-    @if (Route::has('password.request'))
-      <a href="{{ route('password.request') }}" class="ms-3">{{ __('Forgot Password?') }}</a>
-    @endif
-  </div>
-            </div>
-        </form>
-
-    <!-- /.col -->
-    <div class="d-grid gap-2 col-16 mx-auto mt-2">
+                <!-- /.col -->
+                <div class="col-4">
                     <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
                 </div>
                 <!-- /.col -->
+            </div>
+        </form>
 
-        <div class="text-center col-6 mx-auto mb-2 mt-2">
+        @if (Route::has('password.request'))
+            <p class="mb-1">
+                <a href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
+            </p>
+        @endif
+    </div>
+
+    <div class="text-center col-6 mx-auto mb-2 mt-2">
             <a class="text-sm " href="{{ route('register') }}">
                 {{ __('Register now!') }}
             </a>
         </div>
-
-    </div>
     <!-- /.login-card-body -->
 @endsection
