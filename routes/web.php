@@ -29,8 +29,6 @@ Route::get('/pengajuan', function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/redirects',[HomeController::class,"index"]);
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
