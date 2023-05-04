@@ -48,7 +48,7 @@
                                 <button type="button" class="btn btn-secondary">Upload Proposal</button>
                             </div>
                             <div class="mt-2 text-center">
-                                <button type="button" class="btn btn-secondary">Ajukan</button>
+                                <button type="button" class="btn btn-secondary"><a href = "home"style="color: white;"> Ajukan </a> </button>
                             </div>
                         </div>
                     </div>

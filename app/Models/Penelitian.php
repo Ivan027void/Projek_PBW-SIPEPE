@@ -26,15 +26,16 @@ class Penelitian extends Model
         'tanggal_persetujuan' => 'datetime',
     ];
 
-    public function dosen(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'dosen_nip', 'npm');
-    }
+            public function dosen(): BelongsTo
+        {
+            return $this->belongsTo(User::class, 'dosen_nip', 'nip')->select(['npm', 'name']);
+        }
 
-    public function mahasiswa(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm');
-    }
+
+        public function mahasiswa(): BelongsTo
+        {
+            return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm')->with('name');
+        }
 
     public function scopeWithUser($query, $npmOrNip)
     {

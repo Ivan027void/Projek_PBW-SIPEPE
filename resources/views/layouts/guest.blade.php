@@ -15,15 +15,20 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="/">{{ config('app.name', 'Laravel') }}</a>
+<body class="hold-transition " style="height: 1000px">
+<div class="d-flex" style="height: 1000px">
+    <div class ="w-50 d-flex align-items-center justify-content-center" style = "background-image: url('{{ asset('images/Fix.png') }}'); background-repeat: no-repeat; background-size: 100% 100%;">
+        <div class="login-box">
+            <!-- /.login-logo -->
+            <div class="card">
+                @yield('content')
+            </div>
+        </div>
+
     </div>
-    <!-- /.login-logo -->
-    <div class="card">
-        @yield('content')
-    </div>
+    <div class ="w-50 d-flex align-items-center justify-content-center" style ="background-color: #8D99AE">
+         <img src = "{{ asset('images/6.png') }}">
+        </div>
 </div>
 <!-- /.login-box -->
 
