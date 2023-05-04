@@ -27,9 +27,10 @@ class Penelitian extends Model
     ];
 
     public function dosen(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'dosen_nip', 'npm');
-    }
+{
+    return $this->belongsTo(User::class, 'dosen_nip', 'nip')->select(['npm', 'name']);
+}
+
 
     public function mahasiswa(): BelongsTo
     {
