@@ -22,6 +22,9 @@ Route::get('/detailMahasiswa', function () {
     return view('mahasiswa/detailMahasiswa');
 });
 
+Route::get('/pengajuan', function () {
+    return view('mahasiswa/pengajuan');
+});
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -40,14 +43,4 @@ Route::middleware('auth')->group(function () {
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
-
-
-Route::get('/mahasiswa/dashboard', [MahasiswaController::class, 'dashboard'])
-    ->middleware('auth', 'role:mahasiswa');
-    
-Route::get('/dosen/dashboard', [DosenController::class, 'dashboard'])
-    ->middleware('auth', 'role:dosen');
-    
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
-    ->middleware('auth', 'role:admin');
 
