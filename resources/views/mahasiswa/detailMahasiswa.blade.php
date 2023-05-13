@@ -50,39 +50,40 @@
                                             <td>{{ $penelitian->tanggal_pengajuan }}</td>
                                         </tr>
                                     </table>
+
+                                    <div class="text-center mt-3">
+                                      <a href="{{ route('dokumen.create', ['id_penelitian' => $penelitian->id]) }}" class="btn btn-primary">{{ __('Upload Dokumen') }}</a>
+                                    </div>
                                 </div>
                                 <hr>
-                                <div>
-                                    <table class="table text-center">
-                                        <thead>
+                                <h3>Dokumen</h3>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nama File</th>
+                                            <th scope="col">Tanggal di Unggah</th>
+                                            <th scope="col">Komentar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @if(!isset($dokumen) || $dokumen->isEmpty())
                                             <tr>
-                                                <th scope="col">Log</th>
-                                                <th scope="col">Lampiran</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Komentar</th>
+                                                <td colspan="4">Tidak ada dokumen yang terkait dengan penelitian ini.</td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if(!$penelitian->dokumen)
-                                            <tr>
-                                                <td colspan="4">Tidak ada data dokumen.</td>
-                                            </tr>
-                                            @elseif($penelitian->dokumen->isEmpty())
-                                            <tr>
-                                                <td colspan="4">Tidak ada data dokumen.</td>
-                                            </tr>
-                                            @else
-                                            @foreach($penelitian->dokumen as $dokumen)
-                                            <tr>
-                                                <th scope="row">{{ $loop->iteration }}</th>
-                                                <td>{{ $dokumen->nama }}</td>
-                                                <td>{{ $dokumen->status }}</td>
-                                            </tr>
+                                        @else
+                                            @foreach($dokumen as $index => $doc)
+                                                <tr>
+                                                    <td>{{ $index + 1 }}</td>
+                                                    <td><a href="{{ asset('storage/' . $doc->path_file) }}">{{ $doc->nama_file }}</a></td>
+                                                    <td>{{ $doc->created_at }}</td>
+                                                    <td>{{ $doc->komentar ?? '-' }}</td>
+                                                </tr>
                                             @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        @endif
+                                    </tbody>
+                                  </table>
+                              </div>
                             </div>
                         </div>
                     </div>
@@ -93,3 +94,9 @@
     </div>
     <!-- /.content -->
 @endsection
+
+
+
+                
+
+

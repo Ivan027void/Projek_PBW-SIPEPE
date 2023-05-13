@@ -37,6 +37,12 @@ class Penelitian extends Model
             return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm')->with('name');
         }
 
+        public function dokumen()
+        {
+            return $this->hasMany(Dokumen::class, 'id_penelitian');
+        }
+
+
     public function scopeWithUser($query, $npmOrNip)
     {
         return $query->whereHas('Dosen', function ($query) use ($npmOrNip) {
