@@ -24,25 +24,30 @@
                             <form action="{{ route('dokumen.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="id_penelitian" class="form-control">ID Penelitian :</label>
-                                    <input type="text" class="form-control" id="id_penelitian" name="id_penelitian" value="{{ session('id_penelitian') }}">
+                                    <label for="id_penelitian" class="form-label">ID Penelitian :</label>
+                                    <input type="text" class="form-control" id="id_penelitian" name="id_penelitian" value="{{ session('id_penelitian') }}" readonly>
                                 </div>
 
-                                <div class="text-center">
-                                    <label for="dokumen-file" class="btn btn-secondary">Upload Dokumen</label>
-                                    <input type="file" id="dokumen-file" accept=".pdf" style="display: none;" onchange="showFileName(this)">
-                                    <span id="file-name"></span>
+                                <div class="mb-3">
+                                    <label for="dokumen-file" class="form-label">Pilih Dokumen:</label>
+                                    <input type="file" class="form-control" id="dokumen-file" name="dokumen" onchange="showFileName(this)">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="nama_file" class="form-label">Nama File:</label>
+                                    <input type="text" class="form-control" id="nama_file" name="nama_file" readonly>
                                 </div>
 
                                 <script>
                                     function showFileName(input) {
-                                    const fileName = input.files[0].name;
-                                    const fileNameSpan = document.getElementById("file-name");
-                                    fileNameSpan.innerText = fileName;
+                                        const fileName = input.files[0].name;
+                                        const fileNameInput = document.getElementById("nama_file");
+                                        fileNameInput.value = fileName;
                                     }
                                 </script>
 
-                                <div class="mt-2 text-center">
+
+                                <div class="text-center">
                                     <button type="submit" class="btn btn-secondary">Upload</button>
                                 </div>
                             </form>
