@@ -16,7 +16,7 @@ class Komentar extends Model
         'komentar',
         'tanggal_komentar',
         'dosen_nip',
-        'penelitian_id',
+        'penelitian_id'
     ];
 
     protected $casts = [
@@ -36,7 +36,7 @@ class Komentar extends Model
     public function scopeWithUser($query, $npmOrNip)
     {
         return $query->whereHas('dosen', function ($query) use ($npmOrNip) {
-            $query->where('npm', $npmOrNip)->where('role', 'dosen');
+            $query->where('npm', $npmOrNip)->where('role', 'Dosen');
         });
     }
 
@@ -44,7 +44,7 @@ class Komentar extends Model
     {
         return $query->where('dosen_nip', $npmOrNip)
             ->whereHas('dosen', function ($query) {
-                $query->where('role', 'dosen');
+                $query->where('role', 'Dosen');
             });
     }
 

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('dokumen', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('penelitian_id');
+            $table->unsignedBigInteger('id_penelitian');
             $table->string('nama_file');
             $table->string('path_file');
-            $table->foreign('penelitian_id')->references('id')->on('penelitian');
+            $table->foreign('id_penelitian')->references('id')->on('penelitian');
             $table->timestamps();
-        });
+        });        
     }
 
     /**

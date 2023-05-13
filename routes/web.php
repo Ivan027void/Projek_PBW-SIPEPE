@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\DokumenControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,13 @@ Route::get('/pengajuan', function () {
     return view('mahasiswa/pengajuan');
 });
 
+Route::get('/pengajuan', [App\Http\Controllers\PengajuanController::class, 'index'])->name('pengajuan.index');
+Route::post('/pengajuan', [App\Http\Controllers\PengajuanController::class, 'store'])->name('pengajuan.store');
+
+Route::get('/upload-dokumen', [App\Http\Controllers\DokumenController::class, 'create'])->name('dokumen.create');
+Route::post('/upload-dokumen', [App\Http\Controllers\DokumenController::class, 'store'])->name('dokumen.store');
+
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
@@ -42,3 +51,6 @@ Route::middleware('auth')->group(function () {
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
 
+
+
+Route::post('/dokumen/delete', [DokumenController::class, 'deleteDokumen'])->name('dokumen.delete');

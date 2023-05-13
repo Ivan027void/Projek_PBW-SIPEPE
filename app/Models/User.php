@@ -52,12 +52,12 @@ class User extends Authenticatable
 
     public function dosen()
     {
-        return $this->belongsTo(User::class, 'dosen_nip', 'npm')->where('roles', 'dosen');
+        return $this->belongsTo(User::class, 'dosen_nip', 'npm')->where('role', 'dosen');
     }
 
     public function mahasiswa()
     {
-        return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm')->where('roles', 'mahasiswa');
+        return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm')->where('role', 'mahasiswa');
     }
 
 }

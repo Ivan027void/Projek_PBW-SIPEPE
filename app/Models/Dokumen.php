@@ -14,7 +14,7 @@ class Dokumen extends Model
     protected $table = 'dokumen';
 
     protected $fillable = [
-        'penelitian_id',
+        'id_penelitian',
         'nama_file',
         'path_file',
     ];
@@ -24,34 +24,14 @@ class Dokumen extends Model
         return $this->belongsTo(Penelitian::class);
     }
 
+    public function komentar(): HasOne
+    {
+        return $this->hasOne(Komentar::class);
+    }
+
     public function getPathFile()
     {
         return storage_path('app/' . $this->path_file);
-    }
-
-
-
-    public function storeFile($file)
-    {
-        $path = $file->store('dokumen');
-
-        $this->nama_file = $file->getClientOriginalName();
-        $this->path_file = $path;
-
-        return $this->save();
-    }
-
-    public function uploadDokumen(Request $request)
-    {
-        $dokumen = new Dokumen();
-        $dokumen->penelitian_id = $request->input('penelitian_id');
-
-        if ($request->hasFile('file_dokumen')) {
-            $file = $request->file('file_dokumen');
-            $dokumen->storeFile($file);
-        }
-
-        return redirect()->back()->with('success', 'Dokumen berhasil diupload.');
     }
 
 }

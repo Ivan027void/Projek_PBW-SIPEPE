@@ -15,9 +15,9 @@ return new class extends Migration {
             $table->text('komentar');
             $table->date('tanggal_komentar');
             $table->string('dosen_nip');
-            $table->unsignedBigInteger('penelitian_id');
-            $table->foreign('dosen_nip')->references('npm')->on('users')->where('roles', 'dosen');
-            $table->foreign('penelitian_id')->references('id')->on('penelitian');
+            $table->unsignedBigInteger('id_penelitian');
+            $table->foreign('dosen_nip')->references('npm')->on('users')->where('role', 'Dosen');
+            $table->foreign('id_penelitian')->references('id')->on('penelitian');
             $table->timestamps();
         });
     }
