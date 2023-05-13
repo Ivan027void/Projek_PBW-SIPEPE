@@ -26,9 +26,9 @@ class Penelitian extends Model
         'tanggal_persetujuan' => 'datetime',
     ];
 
-            public function dosen(): BelongsTo
+        public function dosen(): BelongsTo
         {
-            return $this->belongsTo(User::class, 'dosen_nip', 'nip')->select(['npm', 'name']);
+            return $this->belongsTo(User::class, 'dosen_nip', 'npm')->select(['npm', 'name'])->where('role', 'Dosen');
         }
 
 
@@ -39,9 +39,9 @@ class Penelitian extends Model
 
     public function scopeWithUser($query, $npmOrNip)
     {
-        return $query->whereHas('dosen', function ($query) use ($npmOrNip) {
+        return $query->whereHas('Dosen', function ($query) use ($npmOrNip) {
             $query->where('npm', $npmOrNip);
-        })->orWhereHas('mahasiswa', function ($query) use ($npmOrNip) {
+        })->orWhereHas('Mahasiswa', function ($query) use ($npmOrNip) {
             $query->where('npm', $npmOrNip);
         });
     }
@@ -53,4 +53,7 @@ class Penelitian extends Model
                   ->orWhere('mahasiswa_npm', $npmOrNip);
         });
     }
+
+
+
 }
