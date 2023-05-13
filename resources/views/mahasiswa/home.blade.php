@@ -40,7 +40,7 @@
                                     @foreach($penelitian as $pen)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $pen->judul_penelitian }}</td>
+                                            <td><a href="{{ route('penelitian.show', $pen->id) }}" style="color: black;" onmouseover="this.style.color='blue';" onmouseout="this.style.color='black';">{{ $pen->judul_penelitian }}</a></td>
                                             <td>{{ $pen->dosen->name }}</td>
                                             <td>{{ $pen->tanggal_pengajuan ?? '-' }}</td>
                                             <td>{{ $pen->tanggal_persetujuan ?? '-' }}</td>

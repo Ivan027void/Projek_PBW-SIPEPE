@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\DokumenControler;
+use App\Http\Controllers\PenelitianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,10 @@ Route::get('/', function () {
 Route::get('/detailMahasiswa', function () {
     return view('mahasiswa/detailMahasiswa');
 });
+
+Route::get('/penelitian', [App\Http\Controllers\PenelitianController::class, 'index'])->name('penelitian.index');
+Route::get('/penelitian/{id}', [App\Http\Controllers\PenelitianController::class, 'show'])->name('penelitian.show');
+
 
 Route::get('/pengajuan', function () {
     return view('mahasiswa/pengajuan');

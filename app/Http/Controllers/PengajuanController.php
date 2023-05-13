@@ -34,7 +34,7 @@ class PengajuanController extends Controller
         $penelitian->judul_penelitian = $validatedData['judul'];
         $penelitian->deskripsi = $validatedData['deskripsi'];
         $penelitian->tanggal_pengajuan = date('Y-m-d');
-        $penelitian->status_persetujuan = null;
+        $penelitian->status_persetujuan = 'Pending';
         $penelitian->tanggal_persetujuan = null;
         $penelitian->save();
 
