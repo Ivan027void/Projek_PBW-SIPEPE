@@ -16,10 +16,13 @@ return new class extends Migration
             $table->unsignedBigInteger('id_penelitian');
             $table->string('nama_file');
             $table->string('path_file');
+            $table->text('komentar')->nullable();
+            $table->date('tanggal_komentar')->nullable();
             $table->foreign('id_penelitian')->references('id')->on('penelitian');
             $table->timestamps();
-        });        
+        });
     }
+    
 
     /**
      * Reverse the migrations.
