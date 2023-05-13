@@ -7,25 +7,30 @@
     <tr class="">
         <td>Judul </td>
         <td>:</td>
-        <td>E - Commerce</td>
+        <td>{{ $penelitian->judul_penelitian }}</td>
     </tr>
 
     <tr>
-      <td>Mahasiswa</td>
+      <td>Dosen</td>
       <td>:</td>
-      <td>Ivan</td>
+      <td>{{ $penelitian->dosen->name }}</td>
     </tr>
 
     <tr>
         <td>Status </td>
         <td>:</td>
-        <td>Progress</td>
+        <td>{{ $penelitian->status_persetujuan }}</td>
     </tr>
 
     <tr>
-      <td>target </td>
+      <td>Deskripsi </td>
       <td>:</td>
-      <td>Sekolah menengah atas</td>
+      <td>{{ $penelitian->deskripsi }}</td>
+    </tr>
+    <tr>
+      <td>Tgl Pengajuan </td>
+      <td>:</td>
+      <td>{{ $penelitian->created_at->format('d M Y') }}</td>
     </tr>
   </table>
   </div>
@@ -43,48 +48,28 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>-</td>
-          <td>revisi</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>-</td>
-          <td>Ulang</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>-</td>
-          <td>Revisi</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>-</td>
-          <td>selesai</td>
-          <td>-</td>
-        </tr>
-      </tbody>
+        @if(!$penelitian->dokumen)
+            <tr>
+                <td colspan="4">Tidak ada data dokumen.</td>
+            </tr>
+        @elseif($penelitian->dokumen->isEmpty())
+            <tr>
+                <td colspan="4">Tidak ada data dokumen.</td>
+            </tr>
+        @else
+            @foreach($penelitian->dokumen as $dokumen)
+                <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $dokumen->nama }}</td>
+                    <td>{{ $dokumen->status }}</td>
+                    <td>{{ $dokumen->komentar }}</td>
+                </tr>
+            @endforeach
+        @endif
+    </tbody>
     </table>
   </div>
 
 
 </div>    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
