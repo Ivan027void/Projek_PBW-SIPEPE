@@ -25,9 +25,8 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="id_penelitian" class="form-label">ID Penelitian :</label>
-                                    <input type="text" class="form-control" id="id_penelitian" name="id_penelitian" value="{{ session('id_penelitian') }}" readonly>
+                                    <input type="text" class="form-control" id="id_penelitian" name="id_penelitian" value="{{ $id_penelitian }}" readonly>
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="dokumen-file" class="form-label">Pilih Dokumen:</label>
                                     <input type="file" class="form-control" id="dokumen-file" name="dokumen" onchange="showFileName(this)">

@@ -28,6 +28,17 @@ Route::get('/detailMahasiswa', function () {
 Route::get('/penelitian', [App\Http\Controllers\PenelitianController::class, 'index'])->name('penelitian.index');
 Route::get('/penelitian/{id}', [App\Http\Controllers\PenelitianController::class, 'show'])->name('penelitian.show');
 
+Route::get('/penelitian/dokumen/{filename}', function ($filename) {
+    $path = storage_path('app/public/dokumen/' . $filename);
+    if (!File::exists($path)) {
+        abort(404);
+    }
+    $file = File::get($path);
+    $type = File::mimeType($path);
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+})->where('filename', '[A-Za-z0-9_\-\.]+');
 
 Route::get('/pengajuan', function () {
     return view('mahasiswa/pengajuan');

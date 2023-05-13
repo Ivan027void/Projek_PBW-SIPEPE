@@ -41,6 +41,7 @@ class PengajuanController extends Controller
         // simpan id_penelitian ke session
         $request->session()->put('id_penelitian', $penelitian->id);
 
-        return redirect()->route('dokumen.create');
+        return redirect()->route('dokumen.create', ['id_penelitian' => $penelitian->id])
+                    ->with('success', 'Penelitian berhasil diajukan. Silakan upload dokumen.');
     }
 }

@@ -52,18 +52,19 @@ class Dokumen extends Model
     }
 
     public function setNamaFileAttribute($value)
-    {
-        $extension = strtolower($value->getClientOriginalExtension());
-        if (!in_array($extension, self::ALLOWED_FILE_TYPES)) {
-            throw new \InvalidArgumentException('Tipe file tidak didukung.');
-        }
-
-        $filename = time() . '_' . $value->getClientOriginalName();
-        $path = $value->storeAs('public/dokumen', $filename);
-
-        $this->attributes['nama_file'] = $filename;
-        $this->attributes['path_file'] = $path;
+{
+    $extension = strtolower($value->getClientOriginalExtension());
+    if (!in_array($extension, self::ALLOWED_FILE_TYPES)) {
+        throw new \InvalidArgumentException('Tipe file tidak didukung.');
     }
+
+    $filename = time() . '_' . $value->getClientOriginalName();
+    $path = $value->storeAs('public/dokumen', $filename);
+
+    $this->attributes['nama_file'] = $filename;
+    $this->attributes['path_file'] = 'dokumen/' . $filename;
+}
+
 
     public function getTanggalKomentarAttribute($value)
     {

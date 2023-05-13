@@ -12,18 +12,19 @@ class DokumenController extends Controller
 
 
     public function create(Request $request)
-    {
-        // Ambil id_penelitian dari session
-        $id_penelitian = $request->session()->get('id_penelitian');
+{
+    // Ambil id_penelitian dari parameter URL
+    $id_penelitian = $request->input('id_penelitian');
 
-        // Jika id_penelitian tidak ada, redirect kembali ke halaman pengajuan
-        if (!$id_penelitian) {
-            return redirect()->route('pengajuan.index');
-        }
-
-        // Lewatkan id_penelitian ke view upload dokumen
-        return view('mahasiswa.uploadDokumen', compact('id_penelitian'));
+    // Jika id_penelitian tidak ada, redirect kembali ke halaman pengajuan
+    if (!$id_penelitian) {
+        return redirect()->route('pengajuan.index');
     }
+
+    // Lewatkan id_penelitian ke view upload dokumen
+    return view('mahasiswa.uploadDokumen', compact('id_penelitian'));
+}
+
 
     public function store(Request $request)
 {
