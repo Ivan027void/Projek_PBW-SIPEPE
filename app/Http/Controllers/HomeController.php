@@ -21,7 +21,7 @@ class HomeController extends Controller
         return view('mahasiswa/home', compact('penelitian'));
     } elseif ($role == 'Dosen') {
         $nip = auth()->user()->npm; // ambil nip dari user yang sedang login
-        $penelitian = Penelitian::with(['mahasiswa', 'dosen'])
+        $penelitian = Penelitian::with(['mahasiswa'])
             ->where('dosen_nip', $nip)
             ->orderBy('tanggal_pengajuan', 'desc')
             ->get();

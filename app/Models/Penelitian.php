@@ -34,7 +34,7 @@ class Penelitian extends Model
 
         public function mahasiswa(): BelongsTo
         {
-            return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm')->with('name');
+            return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm')->select(['npm', 'name'])->where('role', 'Mahasiswa');
         }
 
         public function dokumen()
