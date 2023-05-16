@@ -80,6 +80,7 @@
                                             <th scope="col">Nama File</th>
                                             <th scope="col">Tanggal di Unggah</th>
                                             <th scope="col">Komentar</th>
+                                            <th scope="col">aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -93,7 +94,22 @@
                                                     <td>{{ $index + 1 }}</td>
                                                     <td><a href="{{ asset('storage/' . $doc->path_file) }}">{{ $doc->nama_file }}</a></td>
                                                     <td>{{ $doc->created_at }}</td>
-                                                    <td>{{ $doc->komentar ?? '-' }}</td>
+                                                    <td>
+                                                     @if ($doc->komentar)
+                                                            <p>{{ $doc->komentar }}</p>
+                                                            <small class="text-muted">{{ $doc->tanggal_komentar }}</small>
+                                                        @else
+                                                            -
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        <form action="{{ route('penelitian-dosen.store') }}" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="dokumen_id" value="{{ $doc->id }}">
+                                                            <textarea name="komentar" rows="2" cols="30" placeholder="Masukkan komentar..."></textarea>
+                                                            <button type="submit">Kirim</button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif

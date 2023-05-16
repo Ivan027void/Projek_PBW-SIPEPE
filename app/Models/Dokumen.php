@@ -66,13 +66,5 @@ class Dokumen extends Model
 }
 
 
-    public function getTanggalKomentarAttribute($value)
-    {
-        return Carbon::parse($value)->format('d-m-Y');
-    }
 
-    public function setTanggalKomentarAttribute($value)
-    {
-        $this->attributes['tanggal_komentar'] = Carbon::createFromFormat('d-m-Y', $value);
-    }
 }

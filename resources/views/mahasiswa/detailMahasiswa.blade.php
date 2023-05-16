@@ -64,6 +64,7 @@
                                             <th scope="col">Nama File</th>
                                             <th scope="col">Tanggal di Unggah</th>
                                             <th scope="col">Komentar</th>
+                                            <th scope="col">Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -77,7 +78,22 @@
                                                     <td>{{ $index + 1 }}</td>
                                                     <td><a href="{{ asset('storage/' . $doc->path_file) }}">{{ $doc->nama_file }}</a></td>
                                                     <td>{{ $doc->created_at }}</td>
-                                                    <td>{{ $doc->komentar ?? '-' }}</td>
+                                                    <td>
+                                                        @if ($doc->komentar)
+                                                            <p>{{ $doc->komentar }}</p>
+                                                            <small class="text-muted">{{ $doc->tanggal_komentar }}</small>
+                                                        @else
+                                                            -
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                    <form action="{{ route('dokumen.delete', ['id' => $doc->id]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this document?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                    </form>
+
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif
