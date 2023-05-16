@@ -70,10 +70,11 @@ Route::middleware('auth')->group(function () {
 
 
 
-Route::post('/dokumen/delete', [DokumenController::class, 'deleteDokumen'])->name('dokumen.delete');
-
+Route::delete('/dokumen/{id}', [App\Http\Controllers\DokumenController::class, 'deleteDokumen'])->name('dokumen.delete');
 
 Route::get('/dosen/penelitian', [App\Http\Controllers\PenelitianDosenController::class, 'index'])->name('penelitian-dosen.index');
 Route::get('/dosen/penelitian/{id}', [App\Http\Controllers\PenelitianDosenController::class, 'show'])->name('penelitian-dosen.show');
 Route::put('/dosen/penelitian/{id}', [App\Http\Controllers\PenelitianDosenController::class, 'update'])->name('penelitian.update');
 Route::delete('/dosen/penelitian/{id}', [App\Http\Controllers\PenelitianDosenController::class, 'destroy'])->name('penelitian-dosen.destroy');
+
+Route::post('/dosen/penelitian/store', [App\Http\Controllers\PenelitianDosenController::class, 'store'])->name('penelitian-dosen.store');

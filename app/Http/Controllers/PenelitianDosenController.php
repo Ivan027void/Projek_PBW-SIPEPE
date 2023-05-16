@@ -36,6 +36,23 @@ class PenelitianDosenController extends Controller
         ->with('status', 'Status penelitian berhasil diupdate.');
 }
 
+public function store(Request $request)
+{
+    $this->validate($request, [
+        'komentar' => 'required|max:255',
+    ]);
+
+    $dokumenId = $request->input('dokumen_id');
+    $komentar = $request->input('komentar');
+
+    $dokumen = Dokumen::find($dokumenId);
+    $dokumen->komentar = $komentar;
+    $dokumen->tanggal_komentar = Carbon::now();
+    $dokumen->save();
+
+    return redirect()->back()->with('status', 'Komentar berhasil disimpan.');
+}
+
 
     public function destroy($id)
     {

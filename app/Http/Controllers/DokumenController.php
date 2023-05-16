@@ -43,17 +43,17 @@ class DokumenController extends Controller
 
 
 
-    public function deleteDokumen(Request $request)
-    {
-        $id = $request->input('id');
-        $dokumen = Dokumen::findOrFail($id);
+public function deleteDokumen($id)
+{
+    $dokumen = Dokumen::findOrFail($id);
 
-        // Hapus file dokumen dari storage
-        Storage::delete($dokumen->path_file);
+    // Delete the document file from storage
+    Storage::delete('public/' . $dokumen->path_file);
 
-        // Hapus record dokumen dari database
-        $dokumen->delete();
+    // Delete the document record from the database
+    $dokumen->delete();
 
-        return redirect()->back()->with('success', 'Dokumen berhasil dihapus.');
-    }
+    return redirect()->back()->with('success', 'Dokumen berhasil dihapus.');
+}
+
 }
