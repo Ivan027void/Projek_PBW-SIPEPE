@@ -22,8 +22,16 @@ return new class extends Migration
             $table->string('mahasiswa_npm');
             $table->timestamps();
             
-            $table->foreign('dosen_nip')->references('npm')->on('users')->where('roles', 'dosen');
-            $table->foreign('mahasiswa_npm')->references('npm')->on('users')->where('roles', 'mahasiswa');
+            $table->foreign('dosen_nip')
+                ->references('npm')
+                ->on('users')
+                ->whereColumn('role', '=', 'Dosen');
+
+            $table->foreign('mahasiswa_npm')
+                ->references('npm')
+                ->on('users')
+                ->whereColumn('role', '=', 'Mahasiswa');
+
         });
         
     }

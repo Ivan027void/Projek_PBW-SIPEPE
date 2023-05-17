@@ -24,42 +24,32 @@
                                 <thead>
                                     <tr style="background: #60A5FA;">
                                         <th>No</th>
-                                        <th>Penelitian/Judul</th>
+                                        <th>Penelitian/Judul</th>  
                                         <th>Dosen</th>
                                         <th>Tanggal Pengajuan</th>
+                                        <th>Tanggal Persetujuan</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
-                                <tr>
-                                    <td>1</td>
-                                    <td><a href = "detailMahasiswa" style="color: black;" onmouseover="this.style.color='blue';" onmouseout="this.style.color='black';">E-Commerce </a></td>
-                                    <td>Alim Misbullah</td>
-                                    <td>10 Desember 2022</td>
-                                    <td>pending</td>
-                                  </tr>
                                 <tbody>
-                                @if($penelitian->isEmpty())
-                                  <tr>
-                                   
-                                  </tr>
-                                  @else
-                                  @foreach($penelitian as $pen)
-                                  <tr>
-                                    <td>{{ $key + 1 }}</td>
-                                    <td>{{ $pen->judul_penelitian }}</td>
-                                    <td>{{ $pen->dosen->name }}</td>
-                                    <td>{{ $pen->tanggal_pengajuan->format('d/m/Y') }}</td>
-                                    <td>{{ $pen->status_persetujuan }}</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="4">e-commerce</td>
-                                    <td colspan="4">alim misbullah</td>
-                                  </tr>
-                                  @endforeach
-                                  @endif
-                                  
+                                    @if($penelitian->isEmpty())
+                                        <tr>
+                                            <td colspan="6">Tidak ada data penelitian.</td>
+                                        </tr>
+                                    @else
+                                    @foreach($penelitian as $pen)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td><a href="{{ route('penelitian.show', $pen->id) }}" style="color: black;" onmouseover="this.style.color='blue';" onmouseout="this.style.color='black';">{{ $pen->judul_penelitian }}</a></td>
+                                            <td>{{ $pen->dosen->name }}</td>
+                                            <td>{{ $pen->tanggal_pengajuan ?? '-' }}</td>
+                                            <td>{{ $pen->tanggal_persetujuan ?? '-' }}</td>
+                                            <td>{{ $pen->status_persetujuan }}</td>
+                                        </tr>
+                                    @endforeach
+                                    @endif
                                 </tbody>
-                              </table>
+                            </table>
                         </div>
                     </div>
                 </div>

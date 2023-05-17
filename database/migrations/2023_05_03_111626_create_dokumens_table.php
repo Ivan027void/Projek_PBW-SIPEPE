@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('dokumen', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('penelitian_id');
+            $table->unsignedBigInteger('id_penelitian');
             $table->string('nama_file');
             $table->string('path_file');
-            $table->foreign('penelitian_id')->references('id')->on('penelitian');
+            $table->text('komentar')->nullable();
+            $table->date('tanggal_komentar')->nullable();
+            $table->foreign('id_penelitian')->references('id')->on('penelitian');
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

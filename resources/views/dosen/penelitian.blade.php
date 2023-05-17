@@ -30,9 +30,9 @@
                                             <td>{{ $penelitian->judul_penelitian }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Dosen</td>
+                                            <td>Mahasiswa</td>
                                             <td>:</td>
-                                            <td>{{ $penelitian->dosen->name }}</td>
+                                            <td>{{ $penelitian->mahasiswa->name }}</td>
                                         </tr>
                                         <tr>
                                             <td>Status</td>
@@ -49,11 +49,27 @@
                                             <td>:</td>
                                             <td>{{ $penelitian->tanggal_pengajuan }}</td>
                                         </tr>
+                                        <tr>
+                                            <td>Tgl Persetujuan</td>
+                                            <td>:</td>
+                                            <td>{{ $penelitian->tanggal_persetujuan }}</td>
+                                        </tr>
                                     </table>
-
-                                    <div class="text-center mt-3">
-                                      <a href="{{ route('dokumen.create', ['id_penelitian' => $penelitian->id]) }}" class="btn btn-primary">{{ __('Upload Dokumen') }}</a>
-                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <form method="POST" action="{{ route('penelitian.update', $penelitian->id) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="form-group">
+                                            <label for="status_persetujuan">Status Persetujuan:</label>
+                                            <select class="form-control" id="status_persetujuan" name="status_persetujuan">
+                                                <option value="pending" {{ $penelitian->status_persetujuan == 'pending' ? 'selected' : '' }}>Pending</option>
+                                                <option value="terima" {{ $penelitian->status_persetujuan == 'terima' ? 'selected' : '' }}>Terima</option>
+                                                <option value="tolak" {{ $penelitian->status_persetujuan == 'tolak' ? 'selected' : '' }}>Tolak</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">{{ __('Update Status Persetujuan') }}</button>
+                                    </form>
                                 </div>
                                 <hr>
                                 <h3>Dokumen</h3>
@@ -64,7 +80,7 @@
                                             <th scope="col">Nama File</th>
                                             <th scope="col">Tanggal di Unggah</th>
                                             <th scope="col">Komentar</th>
-                                            <th scope="col">Delete</th>
+                                            <th scope="col">aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -79,7 +95,7 @@
                                                     <td><a href="{{ asset('storage/' . $doc->path_file) }}">{{ $doc->nama_file }}</a></td>
                                                     <td>{{ $doc->created_at }}</td>
                                                     <td>
-                                                        @if ($doc->komentar)
+                                                     @if ($doc->komentar)
                                                             <p>{{ $doc->komentar }}</p>
                                                             <small class="text-muted">{{ $doc->tanggal_komentar }}</small>
                                                         @else
@@ -87,12 +103,12 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                    <form action="{{ route('dokumen.delete', ['id' => $doc->id]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this document?');">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                                    </form>
-
+                                                        <form action="{{ route('penelitian-dosen.store') }}" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="dokumen_id" value="{{ $doc->id }}">
+                                                            <textarea name="komentar" rows="2" cols="30" placeholder="Masukkan komentar..."></textarea>
+                                                            <button type="submit">Kirim</button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             @endforeach

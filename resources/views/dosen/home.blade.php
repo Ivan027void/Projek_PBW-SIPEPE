@@ -20,40 +20,36 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <table class="table w-100 text-black text-center" border='1px black'>
-                                <thead>
+                            <table class="table w-100 text-black text-center">
+                            <thead>
                                     <tr style="background: #60A5FA;">
-                                    <th>No</th>
-                                        <th>Judul Penelitian</th>
+                                        <th>No</th>
+                                        <th>Penelitian/Judul</th>  
                                         <th>Mahasiswa</th>
                                         <th>Tanggal Pengajuan</th>
-                                        <th>Status Persetujuan</th>
                                         <th>Tanggal Persetujuan</th>
-                                        <th>Action</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @if($penelitian->isEmpty())
-                                  <tr>
-                                    <td colspan="7">Tidak ada data penelitian.</td>
-                                  </tr>
-                                  @else
-                                  @foreach($penelitian as $pen)
-                                  <tr>
-                                  <td>{{ $key + 1 }}</td>
-                                            <td>{{ $p->judul_penelitian }}</td>
-                                            <td>{{ $p->mahasiswa->name }}</td>
-                                            <td>{{ $p->tanggal_pengajuan->format('d/m/Y') }}</td>
-                                            <td>{{ $p->status_persetujuan }}</td>
-                                            <td>{{ $p->tanggal_persetujuan ? $p->tanggal_persetujuan->format('d/m/Y') : '-' }}</td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                            </td>
-                                  </tr>
-                                  @endforeach
-                                  @endif
+                                    @if($penelitian->isEmpty())
+                                        <tr>
+                                            <td colspan="7">Tidak ada data penelitian.</td>
+                                        </tr>
+                                    @else
+                                        @foreach($penelitian as $pen)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td><a href="{{ route('penelitian-dosen.show', $pen->id) }}" style="color: black;" onmouseover="this.style.color='blue';" onmouseout="this.style.color='black';">{{$pen->judul_penelitian }}</a></td>
+                                                <td>{{ $pen->mahasiswa->name }}</td>
+                                                <td>{{ $pen->tanggal_pengajuan ?? '-' }}</td>
+                                                <td>{{ $pen->tanggal_persetujuan ?? '-' }}</td>
+                                                <td>{{ $pen->status_persetujuan }}</td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 </tbody>
-                              </table>
+                            </table>
                         </div>
                     </div>
                 </div>
