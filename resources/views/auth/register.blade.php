@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card-body login-card-body">
-        <p class="login-box-msg">{{ __('Register') }}</p>
+        <p class="login-box-msg text-xl">{{ __('Register') }}</p>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -24,7 +24,7 @@
 
             <div class="input-group mb-3">
                 <input type="text" name="npm" class="form-control @error('npm') is-invalid @enderror"
-                       placeholder="{{ __('npm/nip') }}" required autocomplete="npm" autofocus>
+                       placeholder="{{ __('NPM/NIP') }}" required autocomplete="npm" autofocus>
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-user"></span>
@@ -85,5 +85,11 @@
                 </div>
             </div>
         </form>
+        
+        <div class="text-center col-6 mx-auto mb-2 mt-2">
+            <a class="text-sm " href="{{ route('login') }}">
+                {{ __('login now!') }}
+            </a>
+        </div>
     </div>
 @endsection

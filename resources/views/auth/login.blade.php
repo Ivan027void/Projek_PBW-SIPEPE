@@ -58,5 +58,11 @@
             </p>
         @endif
     </div>
+
+    <div class="text-center col-6 mx-auto mb-2 mt-2">
+            <a class="text-sm " href="{{ route('register') }}">
+                {{ __('Register now!') }}
+            </a>
+        </div>
     <!-- /.login-card-body -->
 @endsection

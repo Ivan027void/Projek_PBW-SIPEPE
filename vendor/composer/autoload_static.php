@@ -343,8 +343,8 @@ class ComposerStaticInit3e16e38d15ea4e2a73281fc7e260395b
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -529,7 +529,10 @@ class ComposerStaticInit3e16e38d15ea4e2a73281fc7e260395b
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DokumenController' => __DIR__ . '/../..' . '/app/Http/Controllers/DokumenController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\PenelitianController' => __DIR__ . '/../..' . '/app/Http/Controllers/PenelitianController.php',
+        'App\\Http\\Controllers\\PengajuanController' => __DIR__ . '/../..' . '/app/Http/Controllers/PengajuanController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -545,6 +548,9 @@ class ComposerStaticInit3e16e38d15ea4e2a73281fc7e260395b
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
         'App\\Http\\Requests\\RegistrasiRequest' => __DIR__ . '/../..' . '/app/Http/Requests/RegistrasiRequest.php',
+        'App\\Models\\Dokumen' => __DIR__ . '/../..' . '/app/Models/Dokumen.php',
+        'App\\Models\\Komentar' => __DIR__ . '/../..' . '/app/Models/Komentar.php',
+        'App\\Models\\Penelitian' => __DIR__ . '/../..' . '/app/Models/Penelitian.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
