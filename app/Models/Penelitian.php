@@ -26,22 +26,28 @@ class Penelitian extends Model
         'tanggal_persetujuan' => 'datetime',
     ];
 
-            public function dosen(): BelongsTo
+        public function dosen(): BelongsTo
         {
-            return $this->belongsTo(User::class, 'dosen_nip', 'nip')->select(['npm', 'name']);
+            return $this->belongsTo(User::class, 'dosen_nip', 'npm')->select(['npm', 'name'])->where('role', 'Dosen');
         }
 
 
         public function mahasiswa(): BelongsTo
         {
-            return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm')->with('name');
+            return $this->belongsTo(User::class, 'mahasiswa_npm', 'npm')->select(['npm', 'name'])->where('role', 'Mahasiswa');
         }
+
+        public function dokumen()
+        {
+            return $this->hasMany(Dokumen::class, 'id_penelitian');
+        }
+
 
     public function scopeWithUser($query, $npmOrNip)
     {
-        return $query->whereHas('dosen', function ($query) use ($npmOrNip) {
+        return $query->whereHas('Dosen', function ($query) use ($npmOrNip) {
             $query->where('npm', $npmOrNip);
-        })->orWhereHas('mahasiswa', function ($query) use ($npmOrNip) {
+        })->orWhereHas('Mahasiswa', function ($query) use ($npmOrNip) {
             $query->where('npm', $npmOrNip);
         });
     }
@@ -53,4 +59,7 @@ class Penelitian extends Model
                   ->orWhere('mahasiswa_npm', $npmOrNip);
         });
     }
+
+
+
 }
