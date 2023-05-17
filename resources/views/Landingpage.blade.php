@@ -48,7 +48,7 @@
 
     <!-- Menampilkan footer halaman -->
     <footer class= text-center pt-3">
-        <p> <strong>Copyright 2023 &copy; NutriCycle</strong>></p>
+        <p> <strong>Copyright 2023 &copy; SI2PE (Sistem Pengelolaan Penelitian) </strong></p>
     </footer>
 
     <!-- Memuat file JavaScript dari Bootstrap untuk membuat halaman responsif -->
