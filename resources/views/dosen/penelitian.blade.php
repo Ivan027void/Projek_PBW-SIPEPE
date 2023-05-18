@@ -57,20 +57,53 @@
                                     </table>
                                 </div>
                                 <div class="mt-3">
-                                    <form method="POST" action="{{ route('penelitian.update', $penelitian->id) }}">
-                                        @csrf
-                                        @method('PUT')
-                                        <div class="form-group">
-                                            <label for="status_persetujuan">Status Persetujuan:</label>
-                                            <select class="form-control" id="status_persetujuan" name="status_persetujuan">
-                                                <option value="pending" {{ $penelitian->status_persetujuan == 'pending' ? 'selected' : '' }}>Pending</option>
-                                                <option value="terima" {{ $penelitian->status_persetujuan == 'terima' ? 'selected' : '' }}>Terima</option>
-                                                <option value="tolak" {{ $penelitian->status_persetujuan == 'tolak' ? 'selected' : '' }}>Tolak</option>
-                                            </select>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">{{ __('Update Status Persetujuan') }}</button>
-                                    </form>
-                                </div>
+    <form method="POST" action="{{ route('penelitian.update', $penelitian->id) }}">
+        @csrf
+        @method('PUT')
+        <div class="form-group">
+            <label for="status_persetujuan">Status Persetujuan:</label>
+            <select class="form-control" id="status_persetujuan" name="status_persetujuan">
+                <option value="pending" {{ $penelitian->status_persetujuan == 'pending' ? 'selected' : '' }}>Pending</option>
+                <option value="terima" {{ $penelitian->status_persetujuan == 'terima' ? 'selected' : '' }}>Terima</option>
+                <option value="tolak" {{ $penelitian->status_persetujuan == 'tolak' ? 'selected' : '' }}>Tolak</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" id="updateBtn">{{ __('Update Status Persetujuan') }}</button>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="notificationModalLabel">Notifikasi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Status persetujuan berhasil diperbarui.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Masukkan script JavaScript Bootstrap dan jQuery di sini -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById("updateBtn").addEventListener("click", function() {
+        $('#notificationModal').modal('show');
+        setTimeout(function() {
+            $('#notificationModal').modal('hide');
+        }, 2000); // Menghilangkan modal notifikasi setelah 2 detik (2000 milidetik)
+    });
+</script>
                                 <hr>
                                 <h3>Dokumen</h3>
                                 <table class="table">
