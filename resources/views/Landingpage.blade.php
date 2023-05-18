@@ -51,7 +51,7 @@
             <br>
             <br>
             <center>
-    <a href="/login" class="btn btn-dark text-white rounded-4 text-center" style="display: inline-block; padding: 12px 24px; background-color: #333; color: white; font-size: 16px; text-decoration: none; border-radius: 4px; border: none; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: background-color 0.3s ease;">
+            <a href="/login" class="btn btn-dark text-white rounded-4 text-center" style="display: inline-block; padding: 12px 24px; background-color: #000; color: white; font-size: 16px; text-decoration: none; border-radius: 4px; border: none; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: background-color 0.3s ease;">
         <i class="fas fa-arrow-right" style="margin-right: 6px;"></i> Get Started
     </a>
 </center>
@@ -60,10 +60,10 @@
         <br>
     </main>
 
-    <!-- Menampilkan footer halaman -->
-    <footer class= " text-white text-center pt-3">
-        <p> <strong>Copyright 2023 &copy; SI2PE (Sistem Pengelolaan Penelitian)</strong></p>
-    </footer>
+   <!-- Menampilkan footer halaman -->
+   <footer class="text-white text-center pb-3 pt-3" style="background-color: #000;">
+    <p><strong>Copyright 2023 &copy; SI2PE (Sistem Pengelolaan Penelitian)</strong></p>
+</footer>
 
     <!-- Memuat file JavaScript dari Bootstrap untuk membuat halaman responsif -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
