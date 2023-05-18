@@ -1,7 +1,7 @@
-<h3># SI2PE (Sistem Pengelolaan Penelitian) </h3>
+<h3># SI2PE (Sistem informasi Pengelolaan Penelitian) </h3>
 ---
 ## Intoduction
-Ini merupakan projek untuk menyelesaikan Mata Kuliah PBW (Pemrograman Berbasis Web). SI2PE ini merupakan sebuah website untuk membantu dalam mempermudah penyerahan penelitian antara mahasiswa dan dosen.
+Ini merupakan projek untuk menyelesaikan Mata Kuliah PBW (Pemrograman Berbasis Web). SI2PE ini merupakan sebuah website untuk membantu dalam mempermudah penyerahan penelitian antara mahasiswa dan dosen sekaligus memberikan informasi terkait penelitian antara dosen yang menerima dan mahasiswa yang menyerahkan.
 1. Mahasiswa dapat menyerahkan laporan yang di kerjakan secara online, dan memilih dosen "dosen yang terdaftar sebagai pembimbing".
 2. Membantu dosen dalam melakukan pengecekan hasil penelitian yang diserahkan oleh mahasiswa.
 
