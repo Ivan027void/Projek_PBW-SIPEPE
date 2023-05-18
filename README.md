@@ -1,11 +1,13 @@
-<h3># SI2PE (Sistem informasi Pengelolaan Penelitian) </h3>
+# SI2PE (Sistem informasi Pengelolaan Penelitian)
 ---
 ## Intoduction
-Ini merupakan projek untuk menyelesaikan Mata Kuliah PBW (Pemrograman Berbasis Web). SI2PE ini merupakan sebuah website untuk membantu dalam mempermudah penyerahan penelitian antara mahasiswa dan dosen sekaligus memberikan informasi terkait penelitian antara dosen yang menerima dan mahasiswa yang menyerahkan.
-1. Mahasiswa dapat menyerahkan laporan yang di kerjakan secara online, dan memilih dosen "dosen yang terdaftar sebagai pembimbing".
-2. Membantu dosen dalam melakukan pengecekan hasil penelitian yang diserahkan oleh mahasiswa.
+<br>
+<p>Ini merupakan projek untuk menyelesaikan Mata Kuliah PBW (Pemrograman Berbasis Web). SI2PE ini merupakan sebuah website untuk membantu dalam mempermudah penyerahan penelitian antara mahasiswa dan dosen sekaligus memberikan informasi terkait penelitian antara dosen yang menerima dan mahasiswa yang menyerahkan.</p>
 
-    Jadi dalam projek ini kami berpikir melakukan sebuah hal yang yang biasa dilakukan secara tatap muka dan coba mengubah sistem pertemuannya dengan secara digitalisasi, seperti memanfaatkan sebuah teknologi yang sudah ada di jaman sekarang. Contohnya belanja onlie, pesan makan bisa seacara online dan bahkan pembelajaran sudah bisa di lakukan secara online. Dari hal seperti ini muncul lah ide kami dalam menentukan judul untuk projek ini yaitu membuat sebuah sistem yang untuk penyerahan dan pengecekan penelitian secara online yang kami beri nama (SI2PE), untuk sekarang ini masih berbasis web.
+<p>1. Mahasiswa dapat menyerahkan laporan yang di kerjakan secara online, dan memilih dosen "dosen yang terdaftar sebagai pembimbing".
+2. Membantu dosen dalam melakukan pengecekan hasil penelitian yang diserahkan oleh mahasiswa.
+</p>
+    <p>Jadi dalam projek ini kami berpikir melakukan sebuah hal yang yang biasa dilakukan secara tatap muka dan coba mengubah sistem pertemuannya dengan secara digitalisasi, seperti memanfaatkan sebuah teknologi yang sudah ada di jaman sekarang. Contohnya belanja onlie, pesan makan bisa seacara online dan bahkan pembelajaran sudah bisa di lakukan secara online. Dari hal seperti ini muncul lah ide kami dalam menentukan judul untuk projek ini yaitu membuat sebuah sistem yang untuk penyerahan dan pengecekan penelitian secara online yang kami beri nama (SI2PE), untuk sekarang ini masih berbasis web.</p>
   
 ## Contibutor
 1. Alifan Naufally Atha (2108107010078)
