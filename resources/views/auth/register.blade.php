@@ -85,5 +85,10 @@
                 </div>
             </div>
         </form>
+        <div class="text-center col-6 mx-auto mb-2 mt-2">
+            <a class="text-sm " href="{{ route('login') }}">
+                {{ __('login now!') }}
+            </a>
+        </div>
     </div>
 @endsection

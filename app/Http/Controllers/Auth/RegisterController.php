@@ -31,9 +31,9 @@ class RegisterController extends Controller
     {
         // Cek apakah email mengandung kata "mhs" atau "dsn"
         if (strpos($data['email'], 'mhs') !== false) {
-            $role = 'mahasiswa';
+            $role = 'Mahasiswa';
         } else if (strpos($data['email'], 'dsn') !== false) {
-            $role = 'dosen';
+            $role = 'Dosen';
         } else if (strpos($data['email'], 'adm') !== false) {
             $role = 'Admin';
         } else {
