@@ -27,7 +27,7 @@
 
     </div>
     <div class ="w-50 d-flex align-items-center justify-content-center" style ="background-color: #8D99AE">
-         <img src = "{{ asset('images/6.png') }}">
+         <img src = "{{ asset('images/6.png') }}"width="700" height="700">
         </div>
 </div>
 <!-- /.login-box -->
